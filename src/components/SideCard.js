@@ -1,5 +1,5 @@
 import { Button, Alert, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
-const BANNER = "https://i.imgur.com/CaKdFMq.jpg";
+const BANNER = "https://cdn2.tfx.company/images/clickwallpapers-pokemon-4k-img2.jpg";
 
 const pokemon= (name)=>{
   return `It's ${name}!`
@@ -11,7 +11,7 @@ const SideCard = () => (
       <strong>It's {pokemon} </strong>
     </Alert>
     <Card>
-      <CardImg top width="100%" src={BANNER} alt="banner" />
+      <CardImg top width="100%" src={BANNER} alt="Pokemon" />
       <CardBody>
         <CardTitle className="h3 mb-2 pt-2 font-weight-bold text-secondary">
           Pokemon Name
