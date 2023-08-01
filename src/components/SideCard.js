@@ -8,7 +8,7 @@ const pokemon= (name)=>{
 const SideCard = () => (
   <>
     <Alert color="info" className="d-none d-lg-block">
-      <strong>It's {pokemon} </strong>
+      {/* <strong>It's {pokemon} </strong> */}
     </Alert>
     <Card>
       <CardImg top width="100%" src={BANNER} alt="Pokemon" />
