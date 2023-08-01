@@ -1,7 +1,7 @@
 
 
 import {
-  Container, Row, Col, Form, Input, Button, Navbar, Nav,
+  Container, Row, Col, Input, Button, Navbar, Nav,
   NavbarBrand, NavLink, NavItem, UncontrolledDropdown,
   DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
@@ -10,7 +10,7 @@ const AVATAR = 'https://www.gravatar.com/avatar/429e504af19fc3e1cfa5c4326ef3394c
 
 const Header = () => (
   <header>
-    <Navbar fixed="top" color="light" light expand="xs" className="border-bottom border-gray bg-white" style={{ height: 80 }}>
+    <Navbar fixed="top" color="info" light expand="xs" className="border-bottom border-grey" style={{ height: 80 }}>
 
       <Container>
         <Row noGutters className="position-relative w-100 align-items-center">
@@ -53,10 +53,10 @@ const Header = () => (
           </Col>
 
           <Col className="d-none d-lg-flex justify-content-end">
-            <Form inline>
-              <Input type="search" className="mr-3" placeholder="" />
-              <Button type="submit" color="info" outline>Search</Button>
-            </Form>
+            
+              <Input type="search" className="mr-3" placeholder="Who's that Pokemon?!" />
+              <Button type="submit"  color="primary" >Search</Button>
+            
           </Col>
 
         </Row>
