@@ -29,7 +29,7 @@ const Post = () => {
           </span>
 
           <span className="d-block pb-4 h2 text-dark border-bottom border-gray">
-            Getting Started with React
+            Choose Your Pokemon Team!
           </span>
 
           <article

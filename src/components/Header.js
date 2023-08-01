@@ -54,7 +54,7 @@ const Header = () => (
 
           <Col className="d-none d-lg-flex justify-content-end">
             <Form inline>
-              <Input type="search" className="mr-3" placeholder="Search React Courses" />
+              <Input type="search" className="mr-3" placeholder="" />
               <Button type="submit" color="info" outline>Search</Button>
             </Form>
           </Col>
