@@ -13,7 +13,16 @@ const LOGO = 'https://p7.hiclipart.com/preview/391/852/862/pokemon-go-computer-i
 
 const Header = () => {
   const [pokemonName, setPokemonName] = useState("");
-  const [pokemon, setPokemon]= useState({})
+  const [pokemonChosen, setPokemonChosen]= useState(false)
+  const [pokemon, setPokemon]= useState({
+        name: "", 
+        species: "", 
+        img: "", 
+        hp: "", 
+        attack: "",
+        defense: "",
+        type: "",
+  })
 
   const searchPokemon = ()=> {
     Axios.get(`http://pokeapi.co/api/v2/pokemon/${pokemonName}`)
@@ -23,7 +32,11 @@ const Header = () => {
         species: response.data.species.name, 
         img: response.data.sprites.front_default, 
         hp: response.data.stats[0].base_stat, 
-        attack: response.data.stats[1].base_stat})
+        attack: response.data.stats[1].base_stat,
+        defense: response.data.stats[2].base_stat,
+        type: response.data.types[0].type.name,
+      })
+        setPokemonChosen=true
     })
   };
   return (
