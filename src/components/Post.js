@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import {Button} from 'reactstrap'
 
 const Post = () => {
   const [post, setPost] = useState(null);
@@ -18,7 +18,9 @@ const Post = () => {
         <div className="position-relative">
           <span className="d-block pb-4 h2 text-dark border-bottom border-gray">
             Choose Your Pokemon Team!
+            
           </span>
+          <Button type="submit"  color="success" >Catch New Pokemon</Button>
 
           <article
             className="pt-5 text-secondary text-justify"
