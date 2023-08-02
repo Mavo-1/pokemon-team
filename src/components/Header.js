@@ -1,10 +1,9 @@
-import {
-  Container, Row, Col, Input, Button, Navbar, Nav,
-  NavbarBrand, NavLink, NavItem, //UncontrolledDropdown,
-  //DropdownToggle, //DropdownMenu, //DropdownItem
-} from 'reactstrap';
 import { useState} from "react";
 import Axios from "axios";
+import {
+  Container, Row, Col, Input, Button, Navbar, Nav,
+  NavbarBrand, NavLink, NavItem,} from 'reactstrap';
+
 
 
 
@@ -12,10 +11,18 @@ const LOGO = 'https://p7.hiclipart.com/preview/391/852/862/pokemon-go-computer-i
 
 
 
-const Header = () => (
-  
+const Header = () => {
+  const [pokemonName, setPokemonName] = useState("");
 
-    
+  const searchPokemon = ()=> {
+    Axios.get(`http://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    .then((response)=> {
+      console.log(response)
+    })
+  };
+  return (
+
+    <>
     <Navbar fixed="top" color="danger" dark expand="xs" className="border-bottom border-grey" style={{ height: 80 }}>
 
       <Container>
@@ -45,9 +52,11 @@ const Header = () => (
 
           <Col className=" d-none d-lg-flex justify-content-end">
             
-              <Input type="search" 
+              <Input onChange={(event)=> {
+                setPokemonName(event.target.value)
+              }} type="search" 
                className=" m-1" placeholder="Who's that Pokemon?!" />
-              <Button  className="m-1" type="submit"  color="primary" >Search</Button>
+              <Button onClick={searchPokemon} className="m-1" type="submit"  color="primary" >Search</Button>
             
           </Col>
 
@@ -55,7 +64,9 @@ const Header = () => (
       </Container>
 
     </Navbar>
- 
-);
+ </>
+  )
+}
+
 
 export default Header;

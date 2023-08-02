@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import Post from './components/Post';
 import Header from "./components/Header";
 import SideCard from "./components/SideCard";
+//import './App.css';
 
 const App = () => (
   <>
@@ -36,5 +37,6 @@ const App = () => (
     </main>
   </>
 );
+
 
 export default App;
