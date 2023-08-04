@@ -41,7 +41,7 @@ const Header = () => {
   };
   return (
      
-    <div className='container-xxl'>
+    <div className='container-fluid'>
     <Navbar fixed="top" color="danger" light  expand="xs" className="border-bottom border-grey" style={{ height: 115 }}>
 
       <Container >
