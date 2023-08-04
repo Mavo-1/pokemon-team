@@ -41,14 +41,14 @@ const Header = () => {
   };
   return (
      
-    <>
-    <Navbar fixed="top" color="danger" dark expand="xs" className="border-bottom border-grey" style={{ height: 80 }}>
+    <div className='container-xxl'>
+    <Navbar fixed="top" color="danger" light  expand="xs" className="border-bottom border-grey" style={{ height: 115 }}>
 
-      <Container>
-        <Row  className="position-relative w-100 align-items-center">
+      <Container >
+        <Row  className="position-fluid w-100 align-items-center">
 
           <Col className="d-none d-lg-flex justify-content-start">
-            <Nav className="mrx-auto" navbar>
+            <Nav   className="mrx-auto" navbar>
 
               <NavItem className="d-flex align-items-center">
                 <NavLink className="font-weight-bold" href="/">
@@ -83,7 +83,7 @@ const Header = () => {
       </Container>
 
     </Navbar>
- </>
+ </div>
   )
 }
 
