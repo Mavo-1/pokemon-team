@@ -36,7 +36,7 @@ const Header = () => {
         defense: response.data.stats[2].base_stat,
         type: response.data.types[0].type.name,
       })
-        setPokemonChosen=true
+        setPokemonChosen(true)
     })
   };
   return (
@@ -45,7 +45,7 @@ const Header = () => {
     <Navbar fixed="top" color="danger" dark expand="xs" className="border-bottom border-grey" style={{ height: 80 }}>
 
       <Container>
-        <Row noGutters className="position-relative w-100 align-items-center">
+        <Row  className="position-relative w-100 align-items-center">
 
           <Col className="d-none d-lg-flex justify-content-start">
             <Nav className="mrx-auto" navbar>
