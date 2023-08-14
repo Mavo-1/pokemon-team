@@ -1,9 +1,7 @@
 import { Button, Alert, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 const BANNER = "https://cdn2.tfx.company/images/clickwallpapers-pokemon-4k-img2.jpg";
 
-const pokemon= (name)=>{
-  return `It's ${name}!`
-}
+
 
 const SideCard = () => (
   <>

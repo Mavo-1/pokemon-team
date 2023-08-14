@@ -1,9 +1,7 @@
-import { useState} from "react";
-import Axios from "axios";
 import {
   Container, Row, Col, Input, Button, Navbar, Nav,
   NavbarBrand, NavLink, NavItem,} from 'reactstrap';
-
+import PokemonSearch from './PokemonSearch';
 
 
 
@@ -12,33 +10,7 @@ const LOGO = 'https://p7.hiclipart.com/preview/391/852/862/pokemon-go-computer-i
 
 
 const Header = () => {
-  const [pokemonName, setPokemonName] = useState("");
-  const [pokemonChosen, setPokemonChosen]= useState(false)
-  const [pokemon, setPokemon]= useState({
-        name: "", 
-        species: "", 
-        img: "", 
-        hp: "", 
-        attack: "",
-        defense: "",
-        type: "",
-  })
-
-  const searchPokemon = ()=> {
-    Axios.get(`http://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-    .then((response)=> {
-      setPokemon({
-        name: pokemonName, 
-        species: response.data.species.name, 
-        img: response.data.sprites.front_default, 
-        hp: response.data.stats[0].base_stat, 
-        attack: response.data.stats[1].base_stat,
-        defense: response.data.stats[2].base_stat,
-        type: response.data.types[0].type.name,
-      })
-        setPokemonChosen(true)
-    })
-  };
+  
   return (
      
     <div className='container-fluid'>
@@ -71,11 +43,11 @@ const Header = () => {
 
           <Col className=" d-none d-lg-flex justify-content-end">
             
-              <Input onChange={(event)=> {
+              <Input /*onChange={(event)=> {
                 setPokemonName(event.target.value)
-              }} type="search" 
-               className=" m-1" placeholder="Who's that Pokemon?!" />
-              <Button onClick={searchPokemon} className="m-1" type="submit"  color="primary" >Search</Button>
+              }} type="search" */
+               className=" m-1" placeholder="Who's that Pokemon?!" /> 
+              <Button /*onClick={searchPokemon}*/ className="m-1" type="submit"  color="primary" >Search</Button>
             
           </Col>
 
