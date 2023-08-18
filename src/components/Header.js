@@ -1,7 +1,7 @@
 import {
   Container, Row, Col, Input, Button, Navbar, Nav,
   NavbarBrand, NavLink, NavItem,} from 'reactstrap';
-import PokemonSearch from './PokemonSearch';
+
 
 
 
@@ -9,8 +9,13 @@ const LOGO = 'https://p7.hiclipart.com/preview/391/852/862/pokemon-go-computer-i
 
 
 
-const Header = () => {
-  
+const Header = ({onSearch}) => {
+  const HandleSearch = () => {
+    const searchTerm= document.getElementById("searchInput").value;
+    console.log("Search term:", searchTerm);
+    onSearch(searchTerm)
+  }
+
   return (
      
     <div className='container-fluid'>
@@ -43,11 +48,8 @@ const Header = () => {
 
           <Col className=" d-none d-lg-flex justify-content-end">
             
-              <Input /*onChange={(event)=> {
-                setPokemonName(event.target.value)
-              }} type="search" */
-               className=" m-1" placeholder="Who's that Pokemon?!" /> 
-              <Button /*onClick={searchPokemon}*/ className="m-1" type="submit"  color="primary" >Search</Button>
+              <Input id="searchInput" type="text"  className=" m-1" placeholder="Who's that Pokemon?!" /> 
+              <Button onClick={HandleSearch} className="m-1" type="submit"  color="primary" >Search</Button>
             
           </Col>
 
