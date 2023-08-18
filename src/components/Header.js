@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+import Axios from 'axios';
 import {
   Container, Row, Col, Input, Button, Navbar, Nav,
   NavbarBrand, NavLink, NavItem,} from 'reactstrap';
@@ -9,14 +11,32 @@ const LOGO = 'https://p7.hiclipart.com/preview/391/852/862/pokemon-go-computer-i
 
 
 
-const Header = ({onSearch}) => {
-  const HandleSearch = () => {
-    const searchTerm= document.getElementById("searchInput").value;
-    console.log("Search term:", searchTerm);
-    onSearch(searchTerm)
-  }
+const Header = ({ onSearch }) => {
+  const [pokemonName, setPokemonName] =useState("");
 
-  return (
+  const handleSearch = () => {
+      Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+        .then((response) => {  
+          
+          const pokemonData = {
+            name: response.data.name,
+            species: response.data.species.name,
+            img: response.data.sprites.front_default,
+            hp: response.data.stats[0].base_stat,
+            attack: response.data.stats[1].base_stat,
+            defense: response.data.stats[2].base_stat,
+            type: response.data.types[0].type.name,
+          };
+          console.log("Extracted Pokemon Data:", pokemonData);
+          onSearch(pokemonData);
+        })
+        .catch((error) => {
+          console.error("Error fetching Pokemon data:", error);
+          onSearch(null);
+        });
+    };
+  
+    return (
      
     <div className='container-fluid'>
     <Navbar fixed="top" color="danger" light  expand="xs" className="border-bottom border-grey" style={{ height: 115 }}>
@@ -48,8 +68,8 @@ const Header = ({onSearch}) => {
 
           <Col className=" d-none d-lg-flex justify-content-end">
             
-              <Input id="searchInput" type="text"  className=" m-1" placeholder="Who's that Pokemon?!" /> 
-              <Button onClick={HandleSearch} className="m-1" type="submit"  color="primary" >Search</Button>
+              <Input id="searchInput" type="text"  className=" m-1" placeholder="Who's that Pokemon?!"  value={pokemonName}  onChange={(e) => setPokemonName(e.target.value)} /> 
+              <Button onClick={handleSearch} className="m-1" type="submit"  color="primary" >Search</Button>
             
           </Col>
 

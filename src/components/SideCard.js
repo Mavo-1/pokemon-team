@@ -1,8 +1,10 @@
 import { Button, Alert, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import React from 'react';
+
+
+
+
 const BANNER = "https://cdn2.tfx.company/images/clickwallpapers-pokemon-4k-img2.jpg";
-
-
 
 
 const SideCard = ({pokemon, pokemonChosen}) => {
@@ -21,7 +23,7 @@ const SideCard = ({pokemon, pokemonChosen}) => {
     <div>
       <Alert color="info" className="d-none d-lg-block">
         {pokemonChosen ? (
-          <strong>It's {pokemonChosen}!</strong>
+          <strong>It's {pokemon.name}!</strong>
         ) : (
           <strong>No Pokemon chosen yet.</strong>
         )}

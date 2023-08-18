@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import Header from "./components/Header";
 import Post from './components/Post';
 import SideCard from "./components/SideCard";
-import PokemonSearch from "./components/PokemonSearch";
+
 
 const App = () => {
   const [pokemon, setPokemon] = useState({
