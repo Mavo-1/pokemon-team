@@ -7,7 +7,7 @@ const Post = ({ pokemon }) => {
   return (
     <div className="position-relative">
       <span className="d-block pb-4 h2 text-dark border-bottom border-gray">
-        Choose Your Pokemon Team!
+        Choose Your Pokemon!
       </span>
       <article
         className="pt-5 text-secondary text-justify"
@@ -20,7 +20,7 @@ const Post = ({ pokemon }) => {
             <p>HP: {pokemon.hp}</p>
             <p>Attack: {pokemon.attack}</p>
             <p>Defense: {pokemon.defense}</p>
-            <p>Small Pokemon Bio: ...</p> {/* Add your custom bio here */}
+            <p>Bio:{/* Add your custom bio here */} </p> 
           </>
         )}
       </article>

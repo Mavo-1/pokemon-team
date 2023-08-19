@@ -23,7 +23,7 @@ const SideCard = ({pokemon, pokemonChosen}) => {
     <div>
       <Alert color="info" className="d-none d-lg-block">
         {pokemonChosen ? (
-          <strong>It's {pokemon.name}!</strong>
+          <strong>IT'S {pokemon.name.toUpperCase()}!</strong>
         ) : (
           <strong>No Pokemon chosen yet.</strong>
         )}
