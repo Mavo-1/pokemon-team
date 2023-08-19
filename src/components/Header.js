@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import {
   Container, Row, Col, Input, Button, Navbar, Nav,
-  NavbarBrand, NavLink, NavItem,} from 'reactstrap';
+  NavbarBrand, NavLink, NavItem, Alert,} from 'reactstrap';
 
 
 
@@ -39,6 +39,9 @@ const Header = ({ onSearch }) => {
     return (
      
     <div className='container-fluid'>
+      <Alert> PokemonName = null ? 
+        {<strong>Make sure Pokemon name is spelled correctly. </strong> }
+      </Alert>
     <Navbar fixed="top" color="danger" light  expand="xs" className="border-bottom border-grey" style={{ height: 115 }}>
 
       <Container >
