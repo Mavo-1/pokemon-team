@@ -32,7 +32,7 @@ const SideCard = ({pokemon, pokemonChosen}) => {
         <CardImg top width="100%" src={pokemon.img || BANNER} alt={pokemon.name || "Pokemon"} />
         <CardBody>
           <CardTitle className="h3 mb-2 pt-2 font-weight-bold text-secondary">
-            {pokemon.name}
+            {pokemon.name.toUpperCase()}
           </CardTitle>
           <CardSubtitle
             className="text-secondary mb-3 font-weight-light text-uppercase"
