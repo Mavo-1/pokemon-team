@@ -24,7 +24,7 @@ const App = () => {
     <>
    
       {/* Pass handleSearch to the Header component */}
-      <Header onSearch={handleSearch} />
+      <Header  onSearch={handleSearch} />
 
       <main className="my-5 py-5">
         <Container className="px-0">
