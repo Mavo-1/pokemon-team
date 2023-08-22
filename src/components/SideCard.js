@@ -13,21 +13,19 @@ const SideCard = ({pokemon, pokemonChosen}) => {
   if (!pokemonChosen) {
     return (
       <div>
-        <Alert color="info" className="d-none d-lg-block">
-          No Pokemon chosen yet.
-        </Alert>
+        
       </div>
     );
   }
   return (
     <div>
-      <Alert color="info" className="d-none d-lg-block">
+      {/* <Alert color="info" className="d-none d-lg-block">
         {pokemonChosen ? (
           <strong>IT'S {pokemon.name.toUpperCase()}!</strong>
         ) : (
           <strong>No Pokemon chosen yet.</strong>
         )}
-      </Alert>
+      </Alert> */}
       <Card>
         <CardImg top width="100%" src={pokemon.img || BANNER} alt={pokemon.name || "Pokemon"} />
         <CardBody>
@@ -46,7 +44,11 @@ const SideCard = ({pokemon, pokemonChosen}) => {
           >
             {/* Display some relevant info */}
             {pokemonChosen ? (
-              `HP: ${pokemon.hp || "Unknown"}, Attack: ${pokemon.attack || "Unknown"}, Defense: ${pokemon.defense || "Unknown"}`
+              <div>
+              <p> HP: {pokemon.hp || "Unknown"}</p> 
+               <p>Attack: {pokemon.attack || "Unknown"}</p>
+               <p>Defense: {pokemon.defense || "Unknown"}</p>
+              </div>
             ) : (
               "Small Pokemon Bio"
             )}
