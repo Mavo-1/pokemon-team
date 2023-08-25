@@ -27,7 +27,6 @@ const Header = ({ onSearch }) => {
             defense: response.data.stats[2].base_stat,
             type: response.data.types[0].type.name,
           };
-          console.log("Extracted Pokemon Data:", pokemonData);
           onSearch(pokemonData);
         })
         .catch((error) => {
