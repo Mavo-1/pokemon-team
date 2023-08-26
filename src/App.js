@@ -45,7 +45,7 @@ const App = () => {
             md={{ size: 7, offset: 1 }}
             tag="section"
             className="py-5 mb-5 py-md-0 mb-md-0">
-        <Post pokemon={pokemon} />
+        <Post pokemon={pokemon} pokemonChosen={pokemon.name !== ""}/>
         
 </Col>
           </Row>
