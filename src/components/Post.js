@@ -11,16 +11,16 @@ const Post = ({pokemon,pokemonChosen}) => {
         <div className="position-relative">
           {!pokemonChosen ? 
           (<Alert color='info' className='d-none d-lg-block'>
-            <strong>Choose  pokemon.</strong>
+            <strong>Choose Your Pokemon!</strong>
           </Alert>) : (<Alert color='info' className='d-none d-lg-block'>
-            <strong>You caught {pokemon.name} </strong>
+            <strong>You caught {pokemon.name.toUpperCase()}! </strong>
           </Alert>)
           }
           <article
             className="pt-5 text-secondary text-justify"
             style={{ fontSize: "0.9rem", whiteSpace: "pre-line" }}>
             
-          </article>
+          </article> 
         </div>
         ); 
 
