@@ -12,7 +12,7 @@ const SideCard = ({pokemon, pokemonChosen}) => {
   if (!pokemonChosen) {
     return (
       <div>
-        <Card>
+        <Card className="my-2" color="danger" outlinestyle={{width: '18rem'}}>
           <CardImg top width="100%" src={pokemon.img || BANNER} alt={pokemon.name || "Pokemon"} />
           <CardBody>
             <Button color="success" className='font-weight-bold'>Random Pokemon</Button>
@@ -22,20 +22,20 @@ const SideCard = ({pokemon, pokemonChosen}) => {
     );
   }else if(pokemonChosen){
     return (
-      <Card>
-        <CardImg top width="100%" src={pokemon.img || BANNER} alt={pokemon.name || "Pokemon"} />
-      <CardBody>
-            <CardTitle className="h3 mb-2 pt-2 font-weight-bold text-secondary">
+      <Card className="my-2" color="success"  outlinestyle={{width: '18rem'}}>
+        <CardImg top width="100%" src={pokemon.img} alt={pokemon.name || "Pokemon"} />
+      <CardBody >
+            <CardTitle className="h1 mb-2 pt-2 font-weight-bold text-dark">
               {pokemon.name.toUpperCase()}
             </CardTitle>
             <CardSubtitle
-              className="text-secondary mb-3 font-weight-light text-uppercase"
+              className="text-dark mb-3 font-weight-light text-uppercase"
               style={{ fontSize: "0.8rem" }}
             >
               {pokemon.type || "Pokemon Type"}
             </CardSubtitle>
             <CardText
-              className="text-secondary mb-4"
+              className="text-dark mb-4"
               style={{ fontSize: "0.75rem" }}
             >
               {/* Display some relevant info */}
