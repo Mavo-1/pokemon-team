@@ -12,7 +12,7 @@ const SideCard = ({pokemon, pokemonChosen}) => {
   if (!pokemonChosen) {
     return (
       <div>
-        <Card className="my-2" color="danger" outlinestyle={{width: '18rem'}}>
+        <Card className="my-2" color="success" outlinestyle={{width: '18rem'}}>
           <CardImg top width="100%" src={pokemon.img || BANNER} alt={pokemon.name || "Pokemon"} />
           <CardBody>
             <Button color="success" className='font-weight-bold'>Random Pokemon</Button>
@@ -22,9 +22,9 @@ const SideCard = ({pokemon, pokemonChosen}) => {
     );
   }else if(pokemonChosen){
     return (
-      <Card className="my-2" color="success"  outlinestyle={{width: '18rem'}}>
-        <CardImg top width="100%" src={pokemon.img} alt={pokemon.name || "Pokemon"} />
-      <CardBody >
+      <Card className="my-2" color="success" outline style = {{width: "25rem"}}>
+        <img top width="100%" src={pokemon.img} alt={pokemon.name || "Pokemon"} />
+      <CardBody color='success' inline style={{width: "18rem"}}>
             <CardTitle className="h1 mb-2 pt-2 font-weight-bold text-dark">
               {pokemon.name.toUpperCase()}
             </CardTitle>
