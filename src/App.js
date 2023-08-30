@@ -14,6 +14,8 @@ const App = () => {
     attack: "",
     defense: "",
     type: "",
+    abilities: [],
+    moves: [],
   });
 
   const handleSearch = (pokemonData) => {

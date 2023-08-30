@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+.list-horizontal-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
+}
+
+.list-horizontal-wrap  * {
+  flex: 1;
+  margin-left: 5px; /* Adjust this value as needed to add spacing between items */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
