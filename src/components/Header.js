@@ -26,8 +26,8 @@ const Header = ({ onSearch }) => {
             attack: response.data.stats[1].base_stat,
             defense: response.data.stats[2].base_stat,
             type: response.data.types[0].type.name,
-            abilities: [],
-            moves: [],
+            abilities: response.data.abilities.map((ability) => ability.ability.name),
+            moves: response.data.moves.map((move) => move.move.name),
           };
           onSearch(pokemonData);
         })
