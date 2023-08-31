@@ -5,8 +5,7 @@ import {Alert, ListGroup, ListGroupItem, Modal, ModalHeader, ModalBody, Button} 
 
 
 const Post = ({pokemon,pokemonChosen}) => {
-  
-    
+
       return (
         <div className="position-relative">
           {!pokemonChosen ? 
