@@ -15,7 +15,7 @@ const SideCard = ({pokemon, pokemonChosen}) => {
         <Card className="my-2" color="success" outlinestyle={{width: '18rem'}}>
           <CardImg top width="100%" src={pokemon.img || BANNER} alt={pokemon.name || "Pokemon"} />
           <CardBody>
-            <Button color="success" className='font-weight-bold'>Random Pokemon</Button>
+            <Button color="danger" className='font-weight-bold'>Add To Team</Button>
           </CardBody>
         </Card>
       </div>
