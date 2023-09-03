@@ -24,7 +24,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
       )}
       {pokemonChosen && (
         <div>
-          <h2 className="h4 text-dark mt-5 mb-3">Abilities:</h2>
+          <h2 className="h4 text-dark mt-5 mb-3">Abilities</h2>
           <div className="list-horizontal-wrap">
             <ListGroup horizontal className="list-unstyled">
               {pokemon.abilities.map((ability, index) => (
@@ -56,8 +56,14 @@ const Post = ({ pokemon, pokemonChosen }) => {
               </ListGroup>
             </ModalBody>
           </Modal>
+
+          <div>
+            <h2 className="h4 text-dark mt-5 mb-3">Weaknesses</h2>
+          </div>
         </div>
+        
       )}
+      
       <article className="pt-5 text-secondary text-justify" style={{ fontSize: "0.9rem", whiteSpace: "pre-line" }}></article>
     </div>
   );
