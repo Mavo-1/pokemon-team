@@ -58,7 +58,19 @@ const Post = ({ pokemon, pokemonChosen }) => {
           </Modal>
 
           <div>
-            <h2 className="h4 text-dark mt-5 mb-3">Weaknesses</h2>
+            <h2 className="h4 text-dark mt-5 mb-3">Strong Against</h2>
+          </div>
+
+          <div>
+            <h2 className="h4 text-dark mt-5 mb-3">Where to find?</h2>
+          </div>
+
+          <div>
+            <h2 className="h4 text-dark mt-5 mb-3"></h2>
+          </div>
+
+          <div>
+            <h2 className="h4 text-dark mt-5 mb-3"></h2>
           </div>
         </div>
         
