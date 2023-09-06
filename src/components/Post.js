@@ -62,7 +62,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
           </div>
 
           <div>
-            <h2 className="h4 text-dark mt-5 mb-3">Where to find?</h2>
+            <h2 className="h4 text-dark mt-5 mb-3">Where to Find</h2>
           </div>
 
           <div>
