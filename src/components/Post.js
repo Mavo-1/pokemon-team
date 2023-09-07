@@ -66,11 +66,11 @@ const Post = ({ pokemon, pokemonChosen }) => {
           </div>
 
           <div>
-            <h2 className="h4 text-dark mt-5 mb-3"></h2>
+            <h2 className="h4 text-dark mt-5 mb-3">Height</h2>
           </div>
 
           <div>
-            <h2 className="h4 text-dark mt-5 mb-3"></h2>
+            <h2 className="h4 text-dark mt-5 mb-3">Weight</h2>
           </div>
         </div>
         
