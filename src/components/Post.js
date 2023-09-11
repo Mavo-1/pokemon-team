@@ -19,7 +19,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
         </Alert>
       ) : (
         <Alert color="info" className="d-none d-lg-block">
-          <strong>You caught {pokemon.name.toUpperCase()}! </strong>
+          <strong>You Caught {pokemon.name.toUpperCase()}! </strong>
         </Alert>
       )}
       {pokemonChosen && (
