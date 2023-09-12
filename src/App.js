@@ -8,8 +8,10 @@ import SideCard from "./components/SideCard";
 const App = () => {
   const [pokemon, setPokemon] = useState({
     name: "",
+    id: "",
     species: "",
     img: "",
+    shiny: "",
     hp: "",
     attack: "",
     defense: "",

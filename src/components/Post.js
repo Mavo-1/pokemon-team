@@ -1,7 +1,10 @@
 import React,{ useState} from 'react';
-import {Alert, ListGroup, ListGroupItem, Modal, ModalHeader, ModalBody, Button} from 'reactstrap';
+import {Alert, ListGroup, ListGroupItem, Modal, ModalHeader, ModalBody, Button, Badge} from 'reactstrap';
 
 
+const capitalName = (name) =>{
+  return name.charAt(0).toUpperCase()+ name.slice(1);
+}
 
 
 const Post = ({ pokemon, pokemonChosen }) => {
@@ -11,6 +14,8 @@ const Post = ({ pokemon, pokemonChosen }) => {
     setShowAllMovesModal(!showAllMovesModal);
   };
 
+
+
   return (
     <div className="position-relative">
       {!pokemonChosen ? (
@@ -19,11 +24,16 @@ const Post = ({ pokemon, pokemonChosen }) => {
         </Alert>
       ) : (
         <Alert color="info" className="d-none d-lg-block">
-          <strong>You Caught {pokemon.name.toUpperCase()}! </strong>
+          <strong>You Caught {capitalName(pokemon.name)}! </strong>
         </Alert>
       )}
       {pokemonChosen && (
         <div>
+          <div>
+            <h2 className="h4 text-dark mt-5 mb-3">Type</h2>
+            <h4><Badge color="secondary">{pokemon.type.toUpperCase()} </Badge></h4>
+
+          </div>
           <h2 className="h4 text-dark mt-5 mb-3">Abilities</h2>
           <div className="list-horizontal-wrap">
             <ListGroup horizontal className="list-unstyled">
@@ -65,9 +75,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
             <h2 className="h4 text-dark mt-5 mb-3">Where to Find</h2>
           </div>
 
-          <div>
-            <h2 className="h4 text-dark mt-5 mb-3">Height</h2>
-          </div>
+          
 
           <div>
             <h2 className="h4 text-dark mt-5 mb-3">Weight</h2>

@@ -1,32 +1,59 @@
+import React, {useState, useEffect} from 'react';
 import { Button,  Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
-import React from 'react';
 
 
 
 
-const BANNER = "https://cdn2.tfx.company/images/clickwallpapers-pokemon-4k-img2.jpg";
 
+const banner = "https://cdn2.tfx.company/images/clickwallpapers-pokemon-4k-img2.jpg";
+
+const capitalName = (name) =>{
+  return name.charAt(0).toUpperCase()+ name.slice(1);
+}
 
 const SideCard = ({pokemon, pokemonChosen}) => {
+  const [imageUrl, setImageUrl] = useState(pokemon.img)
+  useEffect(() => {
+    // Update imageUrl when pokemon.img changes
+    setImageUrl(pokemon.img);
+  }, [pokemon.img]);
+  const toggleShiny = () => {
+    if (pokemon.shiny) {
+      setImageUrl((prevImageUrl) =>
+        prevImageUrl === pokemon.img ? pokemon.shiny : pokemon.img
+      );
+    } else {
+      console.error("Shiny image not available for this Pokémon.");
+    }
+  
+  }
   // Check if a Pokemon is chosen before rendering
   if (!pokemonChosen) {
     return (
       <div>
         <Card className="my-2" color="success" outlinestyle={{width: '18rem'}}>
-          <CardImg top width="100%" src={pokemon.img || BANNER} alt={pokemon.name || "Pokemon"} />
+          <CardImg top width="100%" src={pokemon.img || banner} alt={pokemon.name || "Pokemon"} />
           <CardBody>
             
           </CardBody>
-        </Card>
+        </Card>   
       </div>
     );
   }else if(pokemonChosen){
     return (
+      
       <Card className="my-2" color="success" outline style = {{width: "25rem"}}>
-        <img top width="100%" src={pokemon.img} alt={pokemon.name || "Pokemon"} />
+        <Button color="primary" onClick={toggleShiny} style={{
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            zIndex: 2,
+          }}>{imageUrl === pokemon.img ? 'Show Shiny' : 'Show Normal'}</Button>
+        <CardImg top width="100%" src={imageUrl} alt={pokemon.name} />
+        
       <CardBody color='success' inline style={{width: "18rem"}}>
             <CardTitle className="h1 mb-2 pt-2 font-weight-bold text-dark">
-              {pokemon.name.toUpperCase()}
+              {capitalName(pokemon.name)} #{pokemon.id}
             </CardTitle>
             <CardSubtitle
               className="text-dark mb-3 font-weight-light text-uppercase"

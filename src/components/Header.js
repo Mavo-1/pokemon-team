@@ -20,8 +20,10 @@ const Header = ({ onSearch }) => {
           
           const pokemonData = {
             name: response.data.name,
+            id: response.data.id,
             species: response.data.species.name,
             img: response.data.sprites.front_default,
+            shiny: response.data.sprites.front_shiny, //front_shiny
             hp: response.data.stats[0].base_stat,
             attack: response.data.stats[1].base_stat,
             defense: response.data.stats[2].base_stat,
