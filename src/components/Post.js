@@ -19,9 +19,14 @@ const Post = ({ pokemon, pokemonChosen }) => {
   return (
     <div className="position-relative">
       {!pokemonChosen ? (
-        <Alert color="info" className="d-none d-lg-block">
+        <div>
+        <h1>Welcome to the Pokémon Squad!</h1>
+        <p>Are you ready to embark on a journey through the fascinating world of Pokémon? Use our search feature to discover detailed information about your favorite Pokémon, including their abilities, moves, and more. Catch 'em all, learn about their strengths and weaknesses, and become a Pokémon Master! Start your adventure now by entering a Pokémon's name and hitting the "Search" button above.</p>
+
+        <Alert color="danger" className="d-none d-lg-block">
           <strong>Choose Your Pokemon!</strong>
         </Alert>
+        </div>
       ) : (
         <Alert color="info" className="d-none d-lg-block">
           <strong>You Caught {capitalName(pokemon.name)}! </strong>
