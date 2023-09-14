@@ -43,13 +43,13 @@ const SideCard = ({pokemon, pokemonChosen}) => {
     return (
       
       <Card className="my-2" color="success" outline style = {{width: "25rem"}}>
-        <Button color="primary" onClick={toggleShiny} style={{
+        <Button class="shinyBtn" color="primary" onClick={toggleShiny} style={{
             position: "absolute",
             top: "10px",
             right: "10px",
             zIndex: 2,
           }}>{imageUrl === pokemon.img ? 'Show Shiny' : 'Show Normal'}</Button>
-        <CardImg top width="100%" src={imageUrl} alt={pokemon.name} />
+        <CardImg class="pokemonImg" top width="100%" src={imageUrl} alt={pokemon.name} />
         
       <CardBody color='success' inline style={{width: "18rem"}}>
             <CardTitle className="h1 mb-2 pt-2 font-weight-bold text-dark">
