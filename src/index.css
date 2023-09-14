@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+.intro {
+  color: red;
+}
+
+img.card-img-top {
   image-rendering: pixelated;
 }
 

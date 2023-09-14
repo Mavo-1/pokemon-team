@@ -1,6 +1,6 @@
 # Pokemon Team Introduction
 
-This an app that randomizes your pokemon team in a fun way while giving you details about each pokemon. 
+This an app that lets the user search for detailed information about their favorite Pokemon and then decide if they want to add that Pokemon to their squad by adding them to the team. This app is for anyone who is going into a specific Pokemon game and wants to decide who they want to take along their Pokemon Journey. 
 
 # Who is this for?
 
