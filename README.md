@@ -4,7 +4,7 @@ This an app that lets the user search for detailed information about their favor
 
 # Who is this for?
 
-Anyone who likes Pokemon and wants to play around with a fun team randomizer.
+Anyone who likes Pokemon and wants to have an idea of who they want to try to catch on their journey!
 
 # Getting Started 
 
