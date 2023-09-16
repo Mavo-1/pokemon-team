@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
+import {
+    Button,
+    Offcanvas,
+    OffcanvasHeader,
+    OffcanvasBody
+} from "reactstrap";
 
-
-const Team = () => {
-  const [team, setTeam] = useState([]);
-
-  //Adds pokemon to team
-  const addToTeam = (pokemon) => {
-    setTeam([...team, pokemon]);
-  };
+const Team = ({ team }) => {
   return (
     <div>
       <Button color="primary">Open Team</Button>

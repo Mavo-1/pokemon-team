@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import Header from "./components/Header";
 import Post from "./components/Post";
 import SideCard from "./components/SideCard";
+import Team from "./components/Team"
 
 const App = () => {
   const [pokemon, setPokemon] = useState({
@@ -18,6 +19,13 @@ const App = () => {
     abilities: [],
     moves: [],
   });
+
+  const [team, setTeam]= useState([]); //Defining team state
+
+  const addToTeam = (pokemon)=> { //Function to add pokemon to team
+    console.log('Adding to team:', pokemon)
+    setTeam([...team,pokemon])
+  }
 
   const handleSearch = (pokemonData) => {
     setPokemon(pokemonData);
@@ -40,7 +48,8 @@ const App = () => {
               tag="aside"
               className="pb-5 mb-5 pb-md-0 mb-md-0 mx-auto mx-md-0"
             >
-              <SideCard pokemon={pokemon} pokemonChosen={pokemon.name !== ""} />
+              <SideCard pokemon={pokemon} pokemonChosen={pokemon.name !== ""} onAddToTeam={addToTeam} />
+              <Team team={team}></Team>
             </Col>
 
             <Col

@@ -16,7 +16,7 @@ const capitalName = (name) => {
   return name.charAt(0).toUpperCase() + name.slice(1);
 };
 
-const SideCard = ({ pokemon, pokemonChosen,}) => {
+const SideCard = ({ pokemon, pokemonChosen, onAddToTeam}) => {
   const [imageUrl, setImageUrl] = useState(pokemon.img);
   useEffect(() => {
     // Update imageUrl when pokemon.img changes
@@ -54,7 +54,7 @@ const SideCard = ({ pokemon, pokemonChosen,}) => {
     return (
       <Card className="my-2" color="success" outline style={{ width: "25rem" }}>
         <Button
-          class="shinyBtn"
+          className="shinyBtn"
           color="primary"
           onClick={toggleShiny}
           style={{
@@ -67,7 +67,7 @@ const SideCard = ({ pokemon, pokemonChosen,}) => {
           {imageUrl === pokemon.img ? "Show Shiny" : "Show Normal"}
         </Button>
         <CardImg
-          class="pokemonImg"
+          className="pokemonImg"
           top
           width="100%"
           src={imageUrl}
@@ -88,15 +88,17 @@ const SideCard = ({ pokemon, pokemonChosen,}) => {
             {/* Display some relevant info */}
             {pokemonChosen ? (
               <div>
-                <p> HP: {pokemon.hp || "Unknown"}</p>
-                <p>Attack: {pokemon.attack || "Unknown"}</p>
-                <p>Defense: {pokemon.defense || "Unknown"}</p>
+                <ul>
+                <li> HP: {pokemon.hp || "Unknown"}</li>
+                <li>Attack: {pokemon.attack || "Unknown"}</li>
+                <li>Defense: {pokemon.defense || "Unknown"}</li>
+                </ul>
               </div>
             ) : (
               "Small Pokemon Bio"
             )}
           </CardText>
-          <Button color="danger" className="font-weight-bold">
+          <Button onClick={()=> onAddToTeam(pokemon)} color="danger" className="font-weight-bold">
             Add to Team
           </Button>
         </CardBody>
