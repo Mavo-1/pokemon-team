@@ -98,7 +98,12 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam}) => {
               "Small Pokemon Bio"
             )}
           </CardText>
-          <Button onClick={()=> onAddToTeam(pokemon)} color="danger" className="font-weight-bold">
+          <Button onClick={()=> onAddToTeam(pokemon)} color="danger" className="font-weight-bold" style={{
+            position: "absolute",
+            bottom: "10px",
+            right: "10px",
+            zIndex: 2,
+          }}>
             Add to Team
           </Button>
         </CardBody>
