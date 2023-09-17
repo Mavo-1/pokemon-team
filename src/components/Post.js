@@ -6,6 +6,41 @@ const capitalName = (name) =>{
   return name.charAt(0).toUpperCase()+ name.slice(1);
 }
 
+const pokemonType = (pokemon)=>{
+  switch(pokemon.type){
+    case 'water':
+      return 'primary';
+      break;
+    case 'fire':
+      return 'danger';
+      break;
+    case 'fighting':
+      return 'danger';
+      break;
+    case 'electric':
+      return 'warning';
+      break;
+    case 'grass':
+      return 'success';
+      break;
+    case 'bug':
+      return 'success';
+      break;
+    case 'ice':
+      return 'info';
+      break;
+    case 'ghost':
+      return 'dark';
+      break;
+    case 'dark':
+      return 'dark';
+      break;
+    default:
+      return 'secondary';
+
+  }
+
+}
 
 const Post = ({ pokemon, pokemonChosen }) => {
   const [showAllMovesModal, setShowAllMovesModal] = useState(false);
@@ -36,7 +71,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
         <div>
           <div>
             <h2 className="h4 text-dark mt-5 mb-3">Type</h2>
-            <h4><Badge color="secondary">{pokemon.type.toUpperCase()} </Badge></h4>
+            <h4><Badge color={pokemonType(pokemon)}>{pokemon.type.toUpperCase()} </Badge></h4>
 
           </div>
           <h2 className="h4 text-dark mt-5 mb-3">Abilities</h2>
