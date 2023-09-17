@@ -7,6 +7,8 @@ import {
   CardTitle,
   CardSubtitle,
   CardText,
+  ListGroup,
+  ListGroupItem,
 } from "reactstrap";
 
 const banner =
@@ -82,17 +84,18 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam}) => {
             className="text-dark mb-3 font-weight-light text-uppercase"
             style={{ fontSize: "0.8rem" }}
           >
-            {pokemon.type || "Pokemon Type"}
+            
           </CardSubtitle>
           <CardText className="text-dark mb-4" style={{ fontSize: "0.75rem" }}>
             {/* Display some relevant info */}
             {pokemonChosen ? (
               <div>
-                <ul>
-                <li> HP: {pokemon.hp || "Unknown"}</li>
-                <li>Attack: {pokemon.attack || "Unknown"}</li>
-                <li>Defense: {pokemon.defense || "Unknown"}</li>
-                </ul>
+                <ListGroup flush>
+                <ListGroupItem>{pokemon.type.toUpperCase() || "Pokemon Type"}</ListGroupItem>
+                <ListGroupItem>HP: {pokemon.hp || "Unknown"}</ListGroupItem>
+                <ListGroupItem>Attack: {pokemon.attack || "Unknown"}</ListGroupItem>
+                <ListGroupItem>Defense: {pokemon.defense || "Unknown"}</ListGroupItem>
+                </ListGroup>
               </div>
             ) : (
               "Small Pokemon Bio"
