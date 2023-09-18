@@ -1,46 +1,52 @@
-import React,{ useState} from 'react';
-import {Alert, ListGroup, ListGroupItem, Modal, ModalHeader, ModalBody, Button, Badge} from 'reactstrap';
+import React, { useState } from "react";
+import {
+  Alert,
+  ListGroup,
+  ListGroupItem,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Button,
+  Badge,
+} from "reactstrap";
 
+const capitalName = (name) => {
+  return name.charAt(0).toUpperCase() + name.slice(1);
+};
 
-const capitalName = (name) =>{
-  return name.charAt(0).toUpperCase()+ name.slice(1);
-}
-
-const pokemonType = (pokemon)=>{
-  switch(pokemon.type){
-    case 'water':
-      return 'primary';
+const pokemonType = (pokemon) => {
+  switch (pokemon.type) {
+    case "water":
+      return "primary";
       break;
-    case 'fire':
-      return 'danger';
+    case "fire":
+      return "danger";
       break;
-    case 'fighting':
-      return 'danger';
+    case "fighting":
+      return "danger";
       break;
-    case 'electric':
-      return 'warning';
+    case "electric":
+      return "warning";
       break;
-    case 'grass':
-      return 'success';
+    case "grass":
+      return "success";
       break;
-    case 'bug':
-      return 'success';
+    case "bug":
+      return "success";
       break;
-    case 'ice':
-      return 'info';
+    case "ice":
+      return "info";
       break;
-    case 'ghost':
-      return 'dark';
+    case "ghost":
+      return "dark";
       break;
-    case 'dark':
-      return 'dark';
+    case "dark":
+      return "dark";
       break;
     default:
-      return 'secondary';
-
+      return "secondary";
   }
-
-}
+};
 
 const Post = ({ pokemon, pokemonChosen }) => {
   const [showAllMovesModal, setShowAllMovesModal] = useState(false);
@@ -49,18 +55,23 @@ const Post = ({ pokemon, pokemonChosen }) => {
     setShowAllMovesModal(!showAllMovesModal);
   };
 
-
-
   return (
     <div className="position-relative">
       {!pokemonChosen ? (
         <div>
-        <h1 className="intro">Welcome to the Pokémon Squad!</h1>
-        <p>Are you ready to embark on a journey through the fascinating world of Pokémon? Use our search feature to discover detailed information about your favorite Pokémon, including their abilities, moves, and more. Catch 'em all, learn about their strengths and weaknesses, and become a Pokémon Master! Start your adventure now by entering a Pokémon's name and hitting the "Search" button above.</p>
+          <h1 className="intro">Welcome to the Pokémon Squad!</h1>
+          <p>
+            Are you ready to embark on a journey through the fascinating world
+            of Pokémon? Use our search feature to discover detailed information
+            about your favorite Pokémon, including their abilities, moves, and
+            more. Catch 'em all, learn about their strengths and weaknesses, and
+            become a Pokémon Master! Start your adventure now by entering a
+            Pokémon's name and hitting the "Search" button above.
+          </p>
 
-        <Alert color="danger" className="d-none d-lg-block">
-          <strong>Choose Your Pokemon!</strong>
-        </Alert>
+          <Alert color="danger" className="d-none d-lg-block">
+            <strong>Choose Your Pokemon!</strong>
+          </Alert>
         </div>
       ) : (
         <Alert color="info" className="d-none d-lg-block">
@@ -71,8 +82,11 @@ const Post = ({ pokemon, pokemonChosen }) => {
         <div>
           <div>
             <h2 className="h4 text-dark mt-5 mb-3">Type</h2>
-            <h4><Badge color={pokemonType(pokemon)}>{pokemon.type.toUpperCase()} </Badge></h4>
-
+            <h4>
+              <Badge color={pokemonType(pokemon)}>
+                {pokemon.type.toUpperCase()}{" "}
+              </Badge>
+            </h4>
           </div>
           <h2 className="h4 text-dark mt-5 mb-3">Abilities</h2>
           <div className="list-horizontal-wrap">
@@ -92,12 +106,18 @@ const Post = ({ pokemon, pokemonChosen }) => {
             </ListGroup>
           </div>
           {pokemon.moves.length > 10 && (
-            <Button color="primary" onClick={toggleShowAllMovesModal} className="mt-3">
+            <Button
+              color="primary"
+              onClick={toggleShowAllMovesModal}
+              className="mt-3"
+            >
               View All Moves
             </Button>
           )}
           <Modal isOpen={showAllMovesModal} toggle={toggleShowAllMovesModal}>
-            <ModalHeader toggle={toggleShowAllMovesModal}>All Moves</ModalHeader>
+            <ModalHeader toggle={toggleShowAllMovesModal}>
+              All Moves
+            </ModalHeader>
             <ModalBody>
               <ListGroup>
                 {pokemon.moves.map((move, index) => (
@@ -115,16 +135,16 @@ const Post = ({ pokemon, pokemonChosen }) => {
             <h2 className="h4 text-dark mt-5 mb-3">Where to Find</h2>
           </div>
 
-          
-
           <div>
             <h2 className="h4 text-dark mt-5 mb-3">Weight</h2>
           </div>
         </div>
-        
       )}
-      
-      <article className="pt-5 text-secondary text-justify" style={{ fontSize: "0.9rem", whiteSpace: "pre-line" }}></article>
+
+      <article
+        className="pt-5 text-secondary text-justify"
+        style={{ fontSize: "0.9rem", whiteSpace: "pre-line" }}
+      ></article>
     </div>
   );
 };
