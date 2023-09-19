@@ -7,6 +7,7 @@ import {
 } from "reactstrap";
 
 const Team = ({ team }) => {
+  console.log('Open team btn')
   return (
     <div>
       <Button color="primary">Open Team</Button>
