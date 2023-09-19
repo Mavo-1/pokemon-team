@@ -4,8 +4,6 @@ import {
     Offcanvas,
     OffcanvasHeader,
     OffcanvasBody,
-    List,
-    ListInlineItem,
 } from "reactstrap";
 
 
@@ -17,17 +15,17 @@ const Team = ({ team }) => {
 
   return (
     <div>
-      <Button color="primary" onClick={toggleOffCanvas}>Open Team</Button>
-      <Offcanvas direction="bottom" isOpen={isOpen} toggle={toggleOffCanvas}>
+      <Button color="primary" onClick={toggleOffCanvas} >Open Team</Button>
+      <Offcanvas direction="bottom" isOpen={isOpen} toggle={toggleOffCanvas} style={{ maxHeight: "80%"}}>
         <OffcanvasHeader>Your Team</OffcanvasHeader>
-        <OffcanvasBody>
-          <List type="inline">
+        <OffcanvasBody style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", alignItems: "center" }}>
+          
             {team.map((pokemon) => (
-              <ListInlineItem key={pokemon.id}>
-                <img src={pokemon.img} alt={pokemon.name}></img>
-              </ListInlineItem>
+              <div key={pokemon.id} style={{ maxWidth: "25%", margin: "10px" }}>
+                <img src={pokemon.img} alt={pokemon.name}  style={{ width: "100%", height: "auto" }}></img>
+              </div>
             ))}
-          </List>
+          
         </OffcanvasBody>
       </Offcanvas>
     </div>
