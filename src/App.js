@@ -48,7 +48,7 @@ const App = () => {
               tag="aside"
               className="pb-5 mb-5 pb-md-0 mb-md-0 mx-auto mx-md-0"
             >
-              <SideCard pokemon={pokemon} pokemonChosen={pokemon.name !== ""} onAddToTeam={addToTeam} />
+              <SideCard pokemon={pokemon} pokemonChosen={pokemon.name !== ""} onAddToTeam={addToTeam} team={team} />
               <Team team={team}></Team>
             </Col>
 

@@ -18,7 +18,7 @@ const capitalName = (name) => {
   return name.charAt(0).toUpperCase() + name.slice(1);
 };
 
-const SideCard = ({ pokemon, pokemonChosen, onAddToTeam}) => {
+const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
   const [imageUrl, setImageUrl] = useState(pokemon.img);
   useEffect(() => {
     // Update imageUrl when pokemon.img changes
@@ -33,6 +33,18 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam}) => {
       console.error("Shiny image not available for this Pokémon.");
     }
   };
+
+  const handleAddToTeam= ()=> {
+    //Check for dupes
+    const isDupe= team.some((p)=> p.id=== pokemon.id)
+    if(team.length < 6 && !isDupe){
+      onAddToTeam(pokemon);
+    }else if(isDupe){
+      alert("This Pokemon is already in your squad!");
+    }else{
+      alert("You can't add more than 6 Pokemon to your squad.")
+    }
+  }
   // Check if a Pokemon is chosen before rendering
   if (!pokemonChosen) {
     return (
@@ -101,7 +113,7 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam}) => {
               "Small Pokemon Bio"
             )}
           </CardText>
-          <Button onClick={()=> onAddToTeam(pokemon)} color="danger" className="font-weight-bold" style={{
+          <Button onClick={handleAddToTeam} color="danger" className="font-weight-bold" style={{
             position: "absolute",
             bottom: "10px",
             right: "10px",

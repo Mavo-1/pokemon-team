@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Button,
     Offcanvas,
     OffcanvasHeader,
-    OffcanvasBody
+    OffcanvasBody,
+    List,
+    ListInlineItem,
 } from "reactstrap";
 
+
 const Team = ({ team }) => {
-  console.log('Open team btn')
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleOffCanvas = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div>
-      <Button color="primary">Open Team</Button>
-      <Offcanvas direction="bottom">
+      <Button color="primary" onClick={toggleOffCanvas}>Open Team</Button>
+      <Offcanvas direction="bottom" isOpen={isOpen} toggle={toggleOffCanvas}>
         <OffcanvasHeader>Your Team</OffcanvasHeader>
         <OffcanvasBody>
-          <ul>
+          <List type="inline">
             {team.map((pokemon) => (
-              <li key={pokemon.id}>{pokemon.img}</li>
+              <ListInlineItem key={pokemon.id}>
+                <img src={pokemon.img} alt={pokemon.name}></img>
+              </ListInlineItem>
             ))}
-          </ul>
+          </List>
         </OffcanvasBody>
       </Offcanvas>
     </div>
