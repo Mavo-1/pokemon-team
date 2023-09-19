@@ -18,31 +18,31 @@ const pokemonType = (pokemon) => {
   switch (pokemon.type) {
     case "water":
       return "primary";
-      break;
+      
     case "fire":
       return "danger";
-      break;
+     
     case "fighting":
       return "danger";
-      break;
+      
     case "electric":
       return "warning";
-      break;
+    
     case "grass":
       return "success";
-      break;
+      
     case "bug":
       return "success";
-      break;
+      
     case "ice":
       return "info";
-      break;
+      
     case "ghost":
       return "dark";
-      break;
+      
     case "dark":
       return "dark";
-      break;
+      
     default:
       return "secondary";
   }
