@@ -1,6 +1,8 @@
+/* Set a minimum height for the main content area to push the footer down */
 .App {
   text-align: center;
-  
+  min-height: 100vh; /* 100% of the viewport height */
+  background-color: #62bbff;
 }
 
 .App-logo {
@@ -14,8 +16,9 @@
   }
 }
 
-body{
-  background-color: #62bbff;
+/* Style the main content area */
+.content {
+  padding: 20px; /* Adjust this as needed */
 }
 
 .list-horizontal-wrap {
@@ -24,12 +27,26 @@ body{
   margin-left: -5px;
 }
 
-.list-horizontal-wrap  * {
+.list-horizontal-wrap * {
   flex: 1;
   margin-left: 5px; /* Adjust this value as needed to add spacing between items */
 }
 
+/* Style the footer */
+.Footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Adjust the background color as needed */
+  color: #fff; /* Text color */
+  padding: 10px 0; /* Adjust padding as needed */
+  text-align: center;
+}
 
+.full-width-image {
+  width: 100%;
+}
 
 @keyframes App-logo-spin {
   from {

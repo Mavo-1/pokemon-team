@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Post from "./components/Post";
 import SideCard from "./components/SideCard";
 import Team from "./components/Team"
+import Footer from "./components/Footer"
 
 const App = () => {
   const [pokemon, setPokemon] = useState({
@@ -34,7 +35,7 @@ const App = () => {
 
   return (
     <>
-      {/* Pass handleSearch to the Header component */}
+      /* Pass handleSearch to the Header component */
       <Header onSearch={handleSearch} />
 
       <main className="my-5 py-5">
@@ -62,10 +63,11 @@ const App = () => {
               <Post pokemon={pokemon} pokemonChosen={pokemon.name !== ""} />
             </Col>
 
-          
+            
           </Row>
         </Container>
       </main>
+      <Footer/>
     </>
   );
 };
