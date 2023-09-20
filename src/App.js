@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
+import "./App.css"
 import Header from "./components/Header";
 import Post from "./components/Post";
 import SideCard from "./components/SideCard";
