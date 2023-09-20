@@ -35,7 +35,7 @@ const App = () => {
 
   return (
     <>
-      /* Pass handleSearch to the Header component */
+      {/* Pass handleSearch to the Header component */}
       <Header onSearch={handleSearch} />
 
       <main className="my-5 py-5">

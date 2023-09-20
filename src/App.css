@@ -16,7 +16,7 @@
   }
 }
 
-/* Style the main content area */
+{/* Style the main content area */}
 .content {
   padding: 20px; /* Adjust this as needed */
 }
@@ -32,7 +32,7 @@
   margin-left: 5px; /* Adjust this value as needed to add spacing between items */
 }
 
-/* Style the footer */
+
 .Footer {
   position: absolute;
   bottom: 0;
