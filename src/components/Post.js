@@ -54,6 +54,8 @@ const Post = ({ pokemon, pokemonChosen }) => {
     setShowAllMovesModal(!showAllMovesModal);
   };
 
+ const sortedMoves= pokemon.moves.sort()
+ const sortedAbilities= pokemon.abilities.sort()
  
 
   return (
@@ -94,7 +96,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
           <h2 className="h4 text-dark mt-5 mb-3">Abilities</h2>
           <div className="list-horizontal-wrap">
             <ListGroup horizontal className="list-unstyled">
-              {pokemon.abilities.map((ability, index) => (
+              {sortedAbilities.map((ability, index) => (
                 <ListGroupItem key={index}>{ability}</ListGroupItem>
               ))}
             </ListGroup>
@@ -103,7 +105,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
           <h2 className="h4 text-dark mt-5 mb-3">Moves</h2>
           <div className="list-horizontal-wrap">
             <ListGroup horizontal className="list-unstyled">
-              {pokemon.moves.slice(0, 10).map((moves, index) => (
+              {sortedMoves.slice(0, 9).map((moves, index) => (
                 <ListGroupItem key={index}>{moves}</ListGroupItem>
               ))}
             </ListGroup>
@@ -123,7 +125,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
             </ModalHeader>
             <ModalBody>
               <ListGroup>
-                {pokemon.moves.map((move, index) => (
+                {sortedMoves.map((move, index) => (
                   <ListGroupItem key={index}>{move}</ListGroupItem>
                 ))}
               </ListGroup>
