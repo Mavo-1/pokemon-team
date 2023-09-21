@@ -24,9 +24,12 @@ const App = () => {
 
   const [team, setTeam]= useState([]); //Defining team state
 
+  
+
   const addToTeam = (pokemon)=> { //Function to add pokemon to team
     console.log('Adding to team:', pokemon)
     setTeam([...team,pokemon])
+
   }
 
   const handleSearch = (pokemonData) => {
@@ -34,7 +37,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div>
       {/* Pass handleSearch to the Header component */}
       <Header onSearch={handleSearch} />
 
@@ -51,7 +54,8 @@ const App = () => {
               className="pb-5 mb-5 pb-md-0 mb-md-0 mx-auto mx-md-0"
             >
               <SideCard pokemon={pokemon} pokemonChosen={pokemon.name !== ""} onAddToTeam={addToTeam} team={team} />
-              <Team team={team}></Team>
+            <Team  team={team}/>
+              
             </Col>
 
             <Col
@@ -68,7 +72,7 @@ const App = () => {
         </Container>
       </main>
       <Footer/>
-    </>
+    </div>
   );
 };
 

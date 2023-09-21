@@ -48,14 +48,17 @@ const pokemonType = (pokemon) => {
 
 const Post = ({ pokemon, pokemonChosen }) => {
   const [showAllMovesModal, setShowAllMovesModal] = useState(false);
+  
 
   const toggleShowAllMovesModal = () => {
     setShowAllMovesModal(!showAllMovesModal);
   };
 
+ 
+
   return (
     <div className="position-relative">
-      {!pokemonChosen ? (
+      {!pokemonChosen && (
         <div>
           <h1 className="intro">Welcome to the Pokémon Squad!</h1>
           <p>
@@ -71,14 +74,16 @@ const Post = ({ pokemon, pokemonChosen }) => {
             <strong>Choose Your Pokemon!</strong>
           </Alert>
         </div>
-      ) : (
-        <Alert color="info" className="d-none d-lg-block">
-          <strong>You Caught {capitalName(pokemon.name)}! </strong>
-        </Alert>
       )}
+    
       {pokemonChosen && (
         <div>
           <div>
+          {pokemonChosen &&  (
+          <Alert color="info" className="caught">
+            <strong>You caught {capitalName(pokemon.name)}! </strong>
+          </Alert>
+        )}
             <h2 className="h4 text-dark mt-5 mb-3">Type</h2>
             <h4>
               <Badge color={pokemonType(pokemon)}>
@@ -125,7 +130,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
             </ModalBody>
           </Modal>
 
-          <div>
+          {/* <div>
             <h2 className="h4 text-dark mt-5 mb-3">Strong Against</h2>
           </div>
 
@@ -135,7 +140,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
 
           <div>
             <h2 className="h4 text-dark mt-5 mb-3">Weight</h2>
-          </div>
+          </div> */}
         </div>
       )}
 

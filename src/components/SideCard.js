@@ -40,7 +40,7 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
     if(team.length < 6 && !isDupe){
       onAddToTeam(pokemon);
     }else if(isDupe){
-      alert("This Pokemon is already in your squad!");
+      alert(`You already have ${capitalName(pokemon.name)} in your squad!`);
     }else{
       alert("You can't add more than 6 Pokemon to your squad.")
     }
@@ -57,14 +57,14 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
           <CardImg
             top
             width="100%"
-            src={pokemon.img || banner}
+            src={banner}
             alt={pokemon.name || "Pokemon"}
           />
           <CardBody></CardBody>
         </Card>
       </div>
     );
-  } else if (pokemonChosen) {
+  } else{
     return (
       <Card className="my-2" color="success" outline style={{ width: "25rem" }}>
         <Button
@@ -95,32 +95,44 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
           <CardSubtitle
             className="text-dark mb-3 font-weight-light text-uppercase"
             style={{ fontSize: "0.8rem" }}
-          >
-            
-          </CardSubtitle>
+          ></CardSubtitle>
           <CardText className="text-dark mb-4" style={{ fontSize: "0.75rem" }}>
             {/* Display some relevant info */}
             {pokemonChosen ? (
               <div>
                 <ListGroup flush>
-                <ListGroupItem>{pokemon.type.toUpperCase() || "Pokemon Type"}</ListGroupItem>
-                <ListGroupItem>HP: {pokemon.hp || "Unknown"}</ListGroupItem>
-                <ListGroupItem>Attack: {pokemon.attack || "Unknown"}</ListGroupItem>
-                <ListGroupItem>Defense: {pokemon.defense || "Unknown"}</ListGroupItem>
+                  <ListGroupItem>
+                    {pokemon.type.toUpperCase() || "Pokemon Type"}
+                  </ListGroupItem>
+                  <ListGroupItem>HP: {pokemon.hp || "Unknown"}</ListGroupItem>
+                  <ListGroupItem>
+                    Attack: {pokemon.attack || "Unknown"}
+                  </ListGroupItem>
+                  <ListGroupItem>
+                    Defense: {pokemon.defense || "Unknown"}
+                  </ListGroupItem>
                 </ListGroup>
               </div>
             ) : (
               "Small Pokemon Bio"
             )}
           </CardText>
-          <Button onClick={handleAddToTeam} color="danger" className="font-weight-bold" style={{
-            position: "absolute",
-            bottom: "10px",
-            right: "10px",
-            zIndex: 2,
-          }}>
-            Add to Team
-          </Button>
+
+          
+            <Button
+              onClick={handleAddToTeam}
+              color="danger"
+              className="font-weight-bold"
+              style={{
+                position: "absolute",
+                bottom: "10px",
+                right: "10px",
+                zIndex: 2,
+              }}
+            >
+              Add to Team
+            </Button>
+          
         </CardBody>
       </Card>
     );
