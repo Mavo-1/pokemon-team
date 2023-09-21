@@ -73,7 +73,7 @@ const Post = ({ pokemon, pokemonChosen }) => {
           </p>
 
           <Alert color="danger" className="d-none d-lg-block">
-            <strong>Choose Your Pokemon!</strong>
+            <strong>Choose Your Pokemon</strong>
           </Alert>
         </div>
       )}
