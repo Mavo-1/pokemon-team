@@ -12,7 +12,7 @@ const Footer = () => {
         />
         
       </div>
-      <p>
+      <p className="copy">
           &copy; {new Date().getFullYear()} Pokemon Squad. All Rights Reserved.
         </p>
     </footer>
