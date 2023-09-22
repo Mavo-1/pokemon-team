@@ -69,7 +69,7 @@
   }
 
   /* Example: Adjust the width of certain elements for smaller screens */
-  .container {
+  .container-sm {
     max-width: 100%; /* Adjust container width for smaller screens */
   }
 
