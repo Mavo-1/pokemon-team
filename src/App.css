@@ -50,6 +50,7 @@
 
 .copy {
   text-align: center;
+  
 }
 
 @keyframes App-logo-spin {
@@ -62,7 +63,7 @@
 }
 
 /* For screens smaller than 768px (typical mobile devices) */
-@media (min-width: 577px) and (max-width: 768px)  {
+@media (min-width: 400px) and (max-width: 768px)  {
   /* Adjust your styles for smaller screens here */
   body {
     font-size: 16px; /* Example: Adjust font size for smaller screens */
