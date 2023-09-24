@@ -62,8 +62,8 @@ const Post = ({ pokemon, pokemonChosen }) => {
     <div className="position-relative">
       {!pokemonChosen && (
         <div>
-          <h1 className="intro">Welcome to the Pokémon Squad!</h1>
-          <p>
+          <h1>Welcome to the Pokémon Squad!</h1>
+          <p className="intro">
             Are you ready to embark on a journey through the fascinating world
             of Pokémon? Use our search feature to discover detailed information
             about your favorite Pokémon, including their abilities, moves, and
