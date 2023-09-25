@@ -12,12 +12,17 @@ const Team = ({ team }) => {
   const toggleOffCanvas = () => {
     setIsOpen(!isOpen);
   };
+  
 
   return (
+
     <div>
+      {team.length> 0 && (
       <Button color="primary" onClick={toggleOffCanvas}>
         Open Team
       </Button>
+      )}
+    
       <Offcanvas
         direction="bottom"
         isOpen={isOpen}

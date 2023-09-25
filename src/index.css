@@ -10,10 +10,6 @@ body {
 
 
 
-img.card-img-top {
-  image-rendering: pixelated;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

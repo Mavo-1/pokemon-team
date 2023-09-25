@@ -10,6 +10,10 @@
   pointer-events: none;
 }
 
+.pokemonImg {
+  image-rendering: pixelated;
+}
+
 h1 {
   color: red;
   font-family: sans-serif;
