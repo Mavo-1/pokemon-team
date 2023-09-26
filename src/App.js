@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col,Alert } from "reactstrap";
 import "./App.css"
 import Header from "./components/Header";
 import Post from "./components/Post";
@@ -23,6 +23,7 @@ const App = () => {
   });
 
   const [team, setTeam]= useState([]); //Defining team state
+  const [showAlert, setShowAlert]= useState(false)
 
   
 
@@ -33,15 +34,25 @@ const App = () => {
   }
 
   const handleSearch = (pokemonData) => {
-    setPokemon(pokemonData);
+    if (pokemonData === null || pokemonData.name === null) {
+      setShowAlert(true);
+    } else {
+      setPokemon(pokemonData);
+      setShowAlert(false); // Hide the alert if a valid Pokemon is found
+    }
   };
 
   return (
     <div className="page"> 
       {/* Pass handleSearch to the Header component */}
       <Header onSearch={handleSearch} className="w-100"/>
-
+      
       <main className="my-3 py-5"> 
+      {showAlert && (
+                <Alert color="danger">
+                  Pokemon not found. Make sure the name is spelled correctly.
+                </Alert>
+              )}
       <Team className="open-team-button" team={team}/>
         <Container fluid className="max-width-container">
           <Row
@@ -53,8 +64,13 @@ const App = () => {
               lg={5}
               className="pb-5 pb-md-0 custom-center"
             >
-              <SideCard pokemon={pokemon} pokemonChosen={pokemon.name !== ""} onAddToTeam={addToTeam} team={team} />
-            
+              
+              <SideCard
+                pokemon={pokemon}
+                pokemonChosen={pokemon.name !== ""}
+                onAddToTeam={addToTeam}
+                team={team}
+              />
               
             </Col>
 
@@ -64,8 +80,8 @@ const App = () => {
               lg={6}
               className="pb-5 pb-md-0 custom-center"
             >
-              <Post pokemon={pokemon} pokemonChosen={pokemon.name !== ""} />
               
+                 <Post pokemon={pokemon} pokemonChosen={pokemon.name !== ""} />
             </Col>
 
             

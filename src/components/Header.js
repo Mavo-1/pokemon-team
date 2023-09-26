@@ -23,35 +23,42 @@ const Header = ({ onSearch }) => {
   const handleSearch = () => {
     Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => {
-        const pokemonData = {
-          name: response.data.name,
-          id: response.data.id,
-          species: response.data.species.name,
-          img: response.data.sprites.front_default,
-          shiny: response.data.sprites.front_shiny, //front_shiny
-          hp: response.data.stats[0].base_stat,
-          attack: response.data.stats[1].base_stat,
-          defense: response.data.stats[2].base_stat,
-          type: response.data.types[0].type.name,
-          abilities: response.data.abilities.map(
-            (ability) => ability.ability.name
-          ),
-          moves: response.data.moves.map((move) => move.move.name),
-        };
-        onSearch(pokemonData);
+        if (response.status === 200) {
+          const pokemonData = {
+            name: response.data.name,
+            id: response.data.id,
+            species: response.data.species.name,
+            img: response.data.sprites.front_default,
+            shiny: response.data.sprites.front_shiny,
+            hp: response.data.stats[0].base_stat,
+            attack: response.data.stats[1].base_stat,
+            defense: response.data.stats[2].base_stat,
+            type: response.data.types[0]?.type.name || "Unknown",
+            abilities: response.data.abilities.map(
+              (ability) => ability.ability.name
+            ),
+            moves: response.data.moves.map((move) => move.move.name),
+          };
+          onSearch(pokemonData);
+        } else if(response.status === 404) {
+          // Handle the case where the Pokémon was not found
+          console.error("Pokémon not found.");
+          onSearch(null); // Pass null to onSearch to indicate the error
+        }
       })
       .catch((error) => {
-        console.error("Error fetching Pokemon data:", error);
-        onSearch(null);
+        console.error("Error fetching Pokémon data:", error);
+        onSearch(null); // Pass null to onSearch when there's an error
       });
   };
 
  return (
     <div className="container-fluid">
-      <Alert>
-        PokemonName = null ?
-        {<strong>Make sure Pokemon name is spelled correctly. </strong>}
+       {pokemonName === null && (
+      <Alert color="danger">
+        <strong>Make sure Pokémon name is spelled correctly.</strong>
       </Alert>
+    )}
       <Navbar fixed="top" color="danger" light expand="sm" className="border-bottom border-grey">
         <Container>
           <Row className="align-items-center">
