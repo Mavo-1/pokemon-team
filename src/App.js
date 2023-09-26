@@ -37,41 +37,43 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="page"> 
       {/* Pass handleSearch to the Header component */}
-      <Header onSearch={handleSearch} />
+      <Header onSearch={handleSearch} className="w-100"/>
 
-      <main className="my-5 py-5">
-        <Container className="px-0">
+      <main className="my-3 py-5"> 
+      <Team className="open-team-button" team={team}/>
+        <Container fluid className="max-width-container">
           <Row
-            noGutters
-            className="pt-2 pt-md-5 w-100 px-4 px-xl-0 position-relative"
+            
           >
-            <Col
-              xs={{  order: 1 }}
-              md={{ size: 4, order: 1 }}
-              tag="aside"
-              className="pb-5 mb-5 pb-md-0 mb-md-0 mx-auto mx-md-0"
+             <Col
+              xs={12}
+              md={12}
+              lg={5}
+              className="pb-5 pb-md-0 custom-center"
             >
               <SideCard pokemon={pokemon} pokemonChosen={pokemon.name !== ""} onAddToTeam={addToTeam} team={team} />
-            <Team  team={team}/>
+            
               
             </Col>
 
             <Col
-              xs={{ order:1 }}
-              md={{ size: 7, offset: 1 }}
-              tag="section"
-              className="py-5 mb-5 py-md-0 mb-md-0"
+              xs={12}
+              md={5}
+              lg={6}
+              className="pb-5 pb-md-0 custom-center"
             >
               <Post pokemon={pokemon} pokemonChosen={pokemon.name !== ""} />
+              
             </Col>
 
             
           </Row>
         </Container>
+        
       </main>
-      <Footer/>
+      <Footer className="w-100"/>
     </div>
   );
 };

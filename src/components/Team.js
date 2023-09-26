@@ -18,9 +18,11 @@ const Team = ({ team }) => {
 
     <div>
       {team.length> 0 && (
-      <Button color="primary" onClick={toggleOffCanvas}>
+      <div className="open-team-button-container">
+      <Button color="primary" onClick={toggleOffCanvas} className="font-weight-bold open-team-button">
         Open Team
       </Button>
+      </div>
       )}
     
       <Offcanvas

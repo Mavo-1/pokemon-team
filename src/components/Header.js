@@ -59,7 +59,7 @@ const Header = ({ onSearch }) => {
               <Nav className="mr-auto" navbar>
                 <NavItem className="d-flex align-items-center">
                   <NavLink className="font-weight-bold" href="/">
-                    <img src={LOGO} alt="Logo" className="img-fluid rounded-circle" style={{ width: 36 }} />
+                    <img src={LOGO} alt="Logo" className="img-fluid rounded-circle App-logo" style={{ width: 36 }} />
                   </NavLink>
                 </NavItem>
                 <NavItem className="d-flex align-items-center">

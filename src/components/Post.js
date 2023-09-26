@@ -10,9 +10,9 @@ import {
   Badge,
 } from "reactstrap";
 
-const capitalName = (name) => {
-  return name.charAt(0).toUpperCase() + name.slice(1);
-};
+// const capitalName = (name) => {
+//   return name.charAt(0).toUpperCase() + name.slice(1);
+// };
 
 const pokemonType = (pokemon) => {
   switch (pokemon.type) {
@@ -79,20 +79,16 @@ const Post = ({ pokemon, pokemonChosen }) => {
       )}
     
       {pokemonChosen && (
-        <div>
-          <div>
-          {pokemonChosen &&  (
-          <Alert color="info" className="caught">
-            <strong>You caught {capitalName(pokemon.name)}! </strong>
-          </Alert>
-        )}
+        <div className="post-content">
+          
+          
             <h2 className="h4 text-dark mt-5 mb-3">Type</h2>
             <h4>
               <Badge color={pokemonType(pokemon)}>
                 {pokemon.type.toUpperCase()}{" "}
               </Badge>
             </h4>
-          </div>
+          
           <h2 className="h4 text-dark mt-5 mb-3">Abilities</h2>
           <div className="list-horizontal-wrap">
             <ListGroup horizontal className="list-unstyled">
@@ -132,24 +128,8 @@ const Post = ({ pokemon, pokemonChosen }) => {
             </ModalBody>
           </Modal>
 
-          {/* <div>
-            <h2 className="h4 text-dark mt-5 mb-3">Strong Against</h2>
-          </div>
-
-          <div>
-            <h2 className="h4 text-dark mt-5 mb-3">Where to Find</h2>
-          </div>
-
-          <div>
-            <h2 className="h4 text-dark mt-5 mb-3">Weight</h2>
-          </div> */}
         </div>
       )}
-
-      <article
-        className="pt-5 text-secondary text-justify"
-        style={{ fontSize: "0.9rem", whiteSpace: "pre-line" }}
-      ></article>
     </div>
   );
 };

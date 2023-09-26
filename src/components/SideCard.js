@@ -9,6 +9,7 @@ import {
   CardText,
   ListGroup,
   ListGroupItem,
+  Alert,
 } from "reactstrap";
 
 const banner =
@@ -20,6 +21,8 @@ const capitalName = (name) => {
 
 const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
   const [imageUrl, setImageUrl] = useState(pokemon.img);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
   useEffect(() => {
     // Update imageUrl when pokemon.img changes
     setImageUrl(pokemon.img);
@@ -36,15 +39,19 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
 
   const handleAddToTeam= ()=> {
     //Check for dupes
-    const isDupe= team.some((p)=> p.id=== pokemon.id)
-    if(team.length < 6 && !isDupe){
-      onAddToTeam(pokemon);
-    }else if(isDupe){
-      alert(`You already have ${capitalName(pokemon.name)} in your squad!`);
-    }else{
-      alert("You can't add more than 6 Pokemon to your squad.")
-    }
+    const isDupe = team.some((p) => p.id === pokemon.id);
+  if (team.length < 6 && !isDupe) {
+    onAddToTeam(pokemon);
+    setAlertMessage(`Added ${capitalName(pokemon.name)} to your squad!`);
+    setAlertType("success");
+  } else if (isDupe) {
+    setAlertMessage(`You already have ${capitalName(pokemon.name)} in your squad!`);
+    setAlertType("danger");
+  } else {
+    setAlertMessage("You can't add more than 6 Pokémon to your squad.");
+    setAlertType("warning");
   }
+};
   // Check if a Pokemon is chosen before rendering
   if (!pokemonChosen) {
     return (
@@ -66,7 +73,14 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
     );
   } else{
     return (
-      <Card className="my-2" color="success" outline style={{ width: "25rem" }}>
+      <div className="side-card">
+        {alertMessage && (
+          <Alert color={alertType} className="mb-4">
+            {alertMessage}
+          </Alert>
+        )}
+      <Card className="side-card" color="success" outline style={{ width: "25rem" }}>
+         
         <Button
           className="shinyBtn"
           color="primary"
@@ -78,7 +92,7 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
             zIndex: 2,
           }}
         >
-          {imageUrl === pokemon.img ? "Show Shiny" : "Show Normal"}
+          {imageUrl === pokemon.img ? "Shiny" : "Normal"}
         </Button>
         <CardImg
           className="pokemonImg"
@@ -99,7 +113,7 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
           <CardText className="text-dark mb-4" style={{ fontSize: "0.75rem" }}>
             {/* Display some relevant info */}
             {pokemonChosen ? (
-              <div>
+              
                 <ListGroup flush>
                   <ListGroupItem>
                     {pokemon.type.toUpperCase() || "Pokemon Type"}
@@ -112,7 +126,7 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
                     Defense: {pokemon.defense || "Unknown"}
                   </ListGroupItem>
                 </ListGroup>
-              </div>
+              
             ) : (
               "Small Pokemon Bio"
             )}
@@ -122,7 +136,7 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
             <Button
               onClick={handleAddToTeam}
               color="danger"
-              className="font-weight-bold"
+              className="font-weight-bold "
               style={{
                 position: "absolute",
                 bottom: "10px",
@@ -130,13 +144,18 @@ const SideCard = ({ pokemon, pokemonChosen, onAddToTeam, team}) => {
                 zIndex: 2,
               }}
             >
-              Add to Team
+              Add
             </Button>
           
         </CardBody>
+
+       
       </Card>
+      </div>
     );
+   
   }
+  
 };
 
 export default SideCard;
