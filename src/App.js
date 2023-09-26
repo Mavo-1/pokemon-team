@@ -62,7 +62,7 @@ const App = () => {
               xs={12}
               md={12}
               lg={5}
-              className="pb-5 pb-md-0 custom-center"
+              className="py-5 pb-md-0 custom-center"
             >
               
               <SideCard
@@ -78,7 +78,7 @@ const App = () => {
               xs={12}
               md={5}
               lg={6}
-              className="pb-5 pb-md-0 custom-center"
+              className="py-5 pb-md-0 custom-center"
             >
               
                  <Post pokemon={pokemon} pokemonChosen={pokemon.name !== ""} />
